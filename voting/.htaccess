@@ -1,3 +1,0 @@
-AuthType SSLCert
-Require afsgroup system:ling-grad #system:ling-cnvs
-ErrorDocument 401 /__scripts/needcerts
