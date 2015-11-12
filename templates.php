@@ -46,7 +46,7 @@ function start() {
 	<link rel="stylesheet" media="handheld" href="/colloq/css/handheld.css?v=2">
 	
 	<script type='text/javascript' src='/colloq/sortable/sortable.js'></script>
-	<script type='text/javascript' src='/colloq/jquery-1.9.1.min.js'></script>
+	<script type='text/javascript' src='//code.jquery.com/jquery-1.11.3.min.js'></script>
 	<script type='text/javascript'>
 	jQuery(document).ready(function(){
 		$('header').click(function() {window.location='/colloq/';}).css({cursor: 'pointer'});
