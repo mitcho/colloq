@@ -1,0 +1,13 @@
+AuthType SSLCert
+Require valid-user
+#Require afsgroup system:ling-grad system:ling-cnvs-fac system:ling-cnvs
+ErrorDocument 401 /__scripts/needcerts
+
+RewriteEngine on
+RewriteBase /colloq/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]*?)/(\d+)/?$ index.php?action=$1&id=$2
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*?)/?$ index.php?action=$1

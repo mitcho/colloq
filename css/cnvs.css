@@ -1,0 +1,125 @@
+@charset "UTF-8";
+a:link {
+	text-decoration: none;
+	cursor: pointer;
+	color: #003399;
+}
+a:visited {
+	text-decoration: none;
+	cursor: pointer;
+	color: #003399;
+}
+a:hover {
+	text-decoration: none;
+	cursor: pointer;
+	color: #FF0000;
+}
+a:active {
+	text-decoration: none;
+	cursor: pointer;
+	color: #FF0000;
+}
+body {
+	background: #FFFFFF;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: left; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #333333;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12pt;
+	text-decoration: none;
+}
+
+.cnvs #container {
+	width: 80%;	/* this will create a container 80% of the browser width */
+	background: #FFFFFF;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 1px solid #000000;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+}
+.cnvs #header {
+	background: #DDDDDD;	/* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+	color: #660000;
+	text-align: center;
+	padding: 15px;
+}
+.cnvs #header h1 {
+	margin: 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+	font-size: 22pt;
+	font-weight: normal;
+}
+.cnvs #header h2 {
+	margin: 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+	font-size: 20pt;
+	font-style: italic;
+	font-weight: normal;
+}
+.cnvs #header a:link {
+	text-decoration: none;
+	cursor: pointer;
+	color: #660000;
+}
+.cnvs #header a:visited {
+	text-decoration: none;
+	cursor: pointer;
+	color: #660000;
+}
+.cnvs #header a:hover {
+	text-decoration: none;
+	cursor: pointer;
+	color: #660000;
+}
+.cnvs #header a:active {
+	text-decoration: none;
+	cursor: pointer;
+	color: #660000;
+}
+.cnvs #mainContent {
+	padding-left: 20px;
+	padding-right: 20px;
+	background: #FFFFFF;
+}
+.cnvs #footer {
+	padding: 20px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+	background: #DDDDDD;
+}
+.cnvs #footer p {
+	margin: 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+	text-align: center;
+	color: #660000;
+}
+.bigbutton {
+	font-size: 14pt;
+	color: #000000;
+	font-weight: bold;
+	font-style: italic;
+}
+.sanetext {
+	font-size: 9pt;
+}
+.sanishtext {
+	font-size: 11pt;
+}
+.medbutton {
+	font-size: 11pt;
+	color: #000000;
+	font-weight: bold;
+}
+.lookedup {
+	font-style: italic;
+	font-weight: bold;
+	color: #000000;
+	background-color: #999999;
+	border: thin solid #000000;
+	padding: 2px;
+}
+.pagebutton {
+	background-color: #CCCCCC;
+	border-style: solid;
+	border-width: thin;
+	border-color: #000000;
+}
+.subfield {
+	font-size: 16pt;
+	font-weight: bold;
+}
