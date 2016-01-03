@@ -9,8 +9,8 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "voteform")) {
 											 str_replace("NULL","-1",GetSQLValueString($_POST['vote4'], "int")),
 											 str_replace("NULL","-1",GetSQLValueString($_POST['vote5'], "int")));
 
-	mysql_select_db($database_cnvs, $cnvs);
-	$Result1 = mysql_query($insertSQL, $cnvs) or die(mysql_error());
+	mysql_select_db($database_cnvs, $db);
+	$Result1 = mysql_query($insertSQL, $db) or die(mysql_error());
 
 	header(sprintf("Location: %s", '/colloq/'));
 }
@@ -23,19 +23,19 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "voteform")) {
 											 str_replace("NULL","-1",GetSQLValueString($_POST['vote4'], "int")),
 											 str_replace("NULL","-1",GetSQLValueString($_POST['vote5'], "int")),											 USERNAME);
 
-	mysql_select_db($database_cnvs, $cnvs);
-	$Result1 = mysql_query($insertSQL, $cnvs) or die(mysql_error());
+	mysql_select_db($database_cnvs, $db);
+	$Result1 = mysql_query($insertSQL, $db) or die(mysql_error());
 
 	header(sprintf("Location: %s", '/colloq/'));
 }
 
 $query_nominees = "SELECT id, lastname, firstname, affiliation, website, syntax, semantics, phonology, count(comments.nomid) as comments FROM nominees left join comments on (nominees.id = comments.nomid) group by id ORDER BY lastname ASC";
-$nominees = mysql_query($query_nominees, $cnvs) or die(mysql_error());
+$nominees = mysql_query($query_nominees, $db) or die(mysql_error());
 $row_nominees = mysql_fetch_assoc($nominees);
 $totalRows_nominees = mysql_num_rows($nominees);
 
 $query_ballot = sprintf("SELECT * FROM ballots WHERE voter = %s", GetSQLValueString(USERNAME, "text"));
-$ballot = mysql_query($query_ballot, $cnvs) or die(mysql_error());
+$ballot = mysql_query($query_ballot, $db) or die(mysql_error());
 $row_ballot = mysql_fetch_assoc($ballot);
 $totalRows_ballot = mysql_num_rows($ballot);
 

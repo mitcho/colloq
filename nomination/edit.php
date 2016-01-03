@@ -9,8 +9,8 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
 											 GetSQLValueString(isset($_POST['phonology']) ? "true" : "", "defined","1","0"),
 											 GetSQLValueString($_POST['recordID'], "int"));
 
-	mysql_select_db($database_cnvs, $cnvs);
-	$Result1 = mysql_query($updateSQL, $cnvs) or die(mysql_error());
+	mysql_select_db($database_cnvs, $db);
+	$Result1 = mysql_query($updateSQL, $db) or die(mysql_error());
 
 	$updateGoTo = APPURL . "view/{$_POST['recordID']}";
 	if (isset($_SERVER['QUERY_STRING'])) {
@@ -26,7 +26,7 @@ if (isset($_REQUEST['id'])) {
 }
 
 $query_nominees = sprintf("SELECT * FROM nominees WHERE id = %s", GetSQLValueString($colname_nominees, "int"));
-$nominees = mysql_query($query_nominees, $cnvs) or die(mysql_error());
+$nominees = mysql_query($query_nominees, $db) or die(mysql_error());
 $row_nominees = mysql_fetch_assoc($nominees);
 $totalRows_nominees = mysql_num_rows($nominees);
 

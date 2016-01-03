@@ -1,7 +1,7 @@
 <?php
 
 $query_recent = "SELECT * FROM recent WHERE (year+4 > YEAR(NOW()) OR (year+4 = YEAR(NOW()) AND term = 'fall')) ORDER BY lastname ASC";
-$recent = mysql_query($query_recent, $cnvs) or die(mysql_error());
+$recent = mysql_query($query_recent, $db) or die(mysql_error());
 $row_recent = mysql_fetch_assoc($recent);
 $totalRows_recent = mysql_num_rows($recent);
 

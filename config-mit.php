@@ -43,9 +43,9 @@ $db_settings['name'] = ($db_settings['host'] === 'sql.mit.edu' ? $db_settings['u
 // $db_settings['charset'] = 'utf8';
 
 // connect to database
-global $cnvs;
-$cnvs = mysql_pconnect($db_settings['host'], $db_settings['user'], $db_settings['password']) or trigger_error(mysql_error(),E_USER_ERROR); 
-mysql_select_db($db_settings['name'], $cnvs);
+global $db;
+$db = mysql_pconnect($db_settings['host'], $db_settings['user'], $db_settings['password']) or trigger_error(mysql_error(),E_USER_ERROR); 
+mysql_select_db($db_settings['name'], $db);
 mysql_query('set names utf8');
 
 // get username

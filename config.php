@@ -37,9 +37,9 @@ define('APPPATH', dirname($_SERVER["SCRIPT_FILENAME"]));
 define('APPURL', 'http://' . $_SERVER["HTTP_HOST"] . dirname($_SERVER["SCRIPT_NAME"]));
 
 // connect to database
-global $cnvs;
-$cnvs = mysql_pconnect($db_settings['host'], $db_settings['user'], $db_settings['password']) or trigger_error(mysql_error(),E_USER_ERROR); 
-mysql_select_db($db_settings['name'], $cnvs);
+global $db;
+$db = mysql_pconnect($db_settings['host'], $db_settings['user'], $db_settings['password']) or trigger_error(mysql_error(),E_USER_ERROR); 
+mysql_select_db($db_settings['name'], $db);
 mysql_query('set names ' . $db_settings['charset']);
 
 // get username

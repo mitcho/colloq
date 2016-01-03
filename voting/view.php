@@ -6,14 +6,14 @@ if (isset($_GET['id'])) {
 }
 
 $query_nominees = sprintf("SELECT id, lastname, firstname, affiliation, nominator, website, syntax, semantics, phonology FROM nominees WHERE id = %s ORDER BY lastname ASC", GetSQLValueString($colname_nominees, "int"));
-$nominees = mysql_query($query_nominees, $cnvs) or die(mysql_error());
+$nominees = mysql_query($query_nominees, $db) or die(mysql_error());
 $row_nominees = mysql_fetch_assoc($nominees);
 $pieces = explode(' ', trim($row_nominees['firstname']));
 $real_firstname = $pieces[0];
 
 $colname_comments = $colname_nominees;
 $query_comments = sprintf("SELECT `when`, content FROM comments WHERE nomid = %s ORDER BY `when` ASC", GetSQLValueString($colname_comments, "int"));
-$comments = mysql_query($query_comments, $cnvs) or die(mysql_error());
+$comments = mysql_query($query_comments, $db) or die(mysql_error());
 $row_comments = mysql_fetch_assoc($comments);
 $totalRows_comments = mysql_num_rows($comments);
 

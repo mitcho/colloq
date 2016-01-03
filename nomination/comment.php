@@ -12,21 +12,21 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 						 USERNAME,
 											 GetSQLValueString($_POST['content'], "text"));
 
-	$Result1 = mysql_query($insertSQL, $cnvs) or die(mysql_error());
+	$Result1 = mysql_query($insertSQL, $db) or die(mysql_error());
 
 	if (!$all_subscribed) {
 		// reset subscriptions with the new thing.
-		mysql_query(sprintf("delete from subscriptions where id = %d and email = '".USERNAME."'",$recordID),$cnvs) or die(mysql_error());
+		mysql_query(sprintf("delete from subscriptions where id = %d and email = '".USERNAME."'",$recordID),$db) or die(mysql_error());
 		if (isset($_POST['subscribed'])) {
 			$insertSQL = sprintf("insert into subscriptions (id, email) values ({$recordID},'%s')",USERNAME);
-			mysql_query($insertSQL, $cnvs) or die(mysql_error());
+			mysql_query($insertSQL, $db) or die(mysql_error());
 		}
   }
 
   // BEGIN NOTIFICATIONS
 
   $subscriptionSQL = "select email from subscriptions where (id = '{$recordID}' || id = 0) and email != '".USERNAME."' group by email";
-  $results = mysql_query($subscriptionSQL,$cnvs) or die(mysql_error());
+  $results = mysql_query($subscriptionSQL,$db) or die(mysql_error());
 
   $emails = array();
   while ($row = mysql_fetch_array($results)) {
@@ -35,7 +35,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
   
   if (count($emails)) {
     $query_nominees = sprintf("SELECT * FROM nominees WHERE id = %s", GetSQLValueString($recordID, "int"));
-    $nominees = mysql_query($query_nominees, $cnvs) or die(mysql_error());
+    $nominees = mysql_query($query_nominees, $db) or die(mysql_error());
     $row = mysql_fetch_array($nominees);
 
     $subject = str_replace('[NAME]', htmlspecialchars_decode($row['firstname'].' '.$row['lastname']), COMMENT_NOTIFICATION_SUBJECT);
@@ -74,7 +74,7 @@ if (isset($_GET['id'])) {
 }
 
 $query_nominees = sprintf("SELECT * FROM nominees WHERE id = %s", $colname_nominees);
-$nominees = mysql_query($query_nominees, $cnvs) or die(mysql_error());
+$nominees = mysql_query($query_nominees, $db) or die(mysql_error());
 $row_nominees = mysql_fetch_assoc($nominees);
 
 $subscribedquery = mysql_query("select count(*) as subscribed from subscriptions where email='".USERNAME."' and id = {$colname_nominees}");

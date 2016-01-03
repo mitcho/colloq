@@ -10,23 +10,23 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 											 GetSQLValueString(isset($_POST['semantics']) ? "true" : "", "defined","1","0"),
 											 GetSQLValueString(isset($_POST['phonology']) ? "true" : "", "defined","1","0"));
 
-	$Result1 = mysql_query($insertSQL, $cnvs) or die(mysql_error());
+	$Result1 = mysql_query($insertSQL, $db) or die(mysql_error());
 	@mysql_free_result($Result1);
 
-  $new_recordID = mysql_insert_id($cnvs);
+  $new_recordID = mysql_insert_id($db);
 
   // BEGIN SUBSCRIPTIONS
   
   if (isset($_POST['subscribe']) && !empty($new_recordID)) {
     $insertSQL = sprintf("insert into subscriptions (id, email) values ({$new_recordID},'%s')",USERNAME);
-    mysql_query($insertSQL, $cnvs) or die(mysql_error());
+    mysql_query($insertSQL, $db) or die(mysql_error());
   }
   // END SUBSCRIPTIONS
   
   // BEGIN NOTIFICATIONS
 
   $subscriptionSQL = "select email from subscriptions where id = 0 and email != '".USERNAME."'";
-  $results = mysql_query($subscriptionSQL,$cnvs) or die(mysql_error());
+  $results = mysql_query($subscriptionSQL,$db) or die(mysql_error());
 
   $emails = array();
   while ($row = mysql_fetch_array($results)) {
@@ -35,7 +35,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
   
   if (count($emails)) {
     $query_nominees = sprintf("SELECT * FROM nominees WHERE id = %s", GetSQLValueString($new_recordID, "int"));
-    $nominees = mysql_query($query_nominees, $cnvs) or die(mysql_error());
+    $nominees = mysql_query($query_nominees, $db) or die(mysql_error());
     $row = mysql_fetch_array($nominees);
 
     $subject = str_replace('[NAME]', htmlspecialchars_decode($row['firstname'].' '.$row['lastname']), NOMINEE_NOTIFICATION_SUBJECT);

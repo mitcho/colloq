@@ -29,10 +29,10 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 
 function log_access_activity() {
-	global $cnvs;
+	global $db;
 	// mark activity
 	$updateSQL = sprintf("REPLACE into activity (email, user_agent) values (%s, %s)",
 											 GetSQLValueString(USERNAME, "text"),
 											 GetSQLValueString($_SERVER['HTTP_USER_AGENT'], "text"));
-	mysql_query($updateSQL, $cnvs);
+	mysql_query($updateSQL, $db);
 }

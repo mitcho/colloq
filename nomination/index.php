@@ -6,7 +6,7 @@ left join subscriptions on (subscriptions.id = nominees.id and subscriptions.ema
 left join comments on (comments.nomid = nominees.id)
 group by nominees.id
 ORDER BY lastname ASC";
-$nominees = mysql_query($query_nominees, $cnvs) or die(mysql_error());
+$nominees = mysql_query($query_nominees, $db) or die(mysql_error());
 $row_nominees = mysql_fetch_assoc($nominees);
 $totalRows_nominees = mysql_num_rows($nominees);
 $syn = 0;
