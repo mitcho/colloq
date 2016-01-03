@@ -4,7 +4,7 @@
 
 // CONFIGURATIONS:
 // phase values are: nomination | nomination_over | voting | voting_over
-$phase = 'voting_over';
+$phase = 'nomination';
 $years = '2015-2016';
 $maintainer = 'admin@admin.com';
 $maintainername = 'admin';
@@ -55,4 +55,11 @@ if (USERNAME === 'admin')
 	define('SUPER',true);
 else
 	define('SUPER',false);
-  
+
+// messages
+global $messages;
+$messages = array(
+	'nologin' => '<p>Your username could not be retrieved. You must log in to use the application.</p>',
+	'wronggroup' => '<p>You do not have the proper credentials to participate in this round.</p>',
+	'nothingtoseehere' => '<h2>Nothing to see here.</h2><p>Please check back later!</p>',
+);

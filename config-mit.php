@@ -68,3 +68,11 @@ function moira($list) {
 	exec("blanche -r -noauth $list", $members);
 	return array_map('strtolower',array_map('trim', $members));
 }
+
+// messages
+global $messages;
+$messages = array(
+	'nologin' => '<p>You must have an <a href="http://web.mit.edu/ist/topics/certificates/" target="_blank">MIT certificate</a> installed in your browser and reaccess <a href="' . APPURL .'">' . APPURL . '</a></p>',
+	'wronggroup' => '<p>You do not have the proper credentials to participate in this round.</p>',
+	'nothingtoseehere' => '<h2>Nothing to see here.</h2><p>Please check back later!</p>',
+);

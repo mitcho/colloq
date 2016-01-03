@@ -90,22 +90,16 @@ function stop() {
 }
 
 function nologin() {
-?>
-<br />
-You must use the following URL to access CNVS (and have an <a href="http://web.mit.edu/ist/topics/certificates/" target="_blank">MIT certificate</a> installed in your browser):
-<br />
-<br />
-<a href="<?php echo APPURL; ?>"><?php echo APPURL; ?></a>
-<?php
+	global $messages;
+	echo $messages['nologin'];
 }
 
 function wronggroup() {
-?>
-<p>You do not have the proper credentials to participate in this round.</p><?php
+	global $messages;
+	echo $messages['wronggroup'];
 }
 
 function nothingtoseehere() {
-?><h2>Nothing to see here.</h2>
-<p>Please check back later!</p>
-<?php
+	global $messages;
+	echo $messages['nothingtoseehere'];
 }
