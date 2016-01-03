@@ -65,7 +65,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
     mail($mailTo, $subject, $message, $headers);
   }
 	
-	$insertGoTo = "/colloq/view/" . $new_recordID;
+	$insertGoTo = APPURL . "view/" . $new_recordID;
 	header(sprintf("Location: %s", $insertGoTo));
 }
 
@@ -77,8 +77,8 @@ $all_subscribed = $all_subscribedrow['subscribed'];
 start();
 ?>
 <h2> Add Nominee </h2>
-<p><strong>Note:</strong> Before adding a new nominee, please consult <a href="/colloq/recent/" target="_self">the list of people who have been invited in the past 5 years</a> (and are therefore ineligible for nomination), as well as <a href="/colloq/" target="_self">the list of current nominees</a>.</p>
-<form method="post" name="form1" id="form1" action="/colloq/add/">
+<p><strong>Note:</strong> Before adding a new nominee, please consult <a href="<?php echo APPURL; ?>recent/" target="_self">the list of people who have been invited in the past 5 years</a> (and are therefore ineligible for nomination), as well as <a href="<?php echo APPURL; ?>" target="_self">the list of current nominees</a>.</p>
+<form method="post" name="form1" id="form1" action="<?php echo APPURL; ?>add/">
 	<table align="center">
 		<tr valign="baseline">
 			<th style="color:#CC0000">First Name:</th>
@@ -119,7 +119,7 @@ start();
 	<table align="center" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td align="left" style="padding-left:10px; padding-right:10px; "><input type="submit" value="Submit new nominee" /></td>
-			<td align="right" style="padding-left:10px; padding-right:10px; "><input type="button" value="Discard &amp; return to list of nominees" onclick="self.location='/colloq/'"/></td>
+			<td align="right" style="padding-left:10px; padding-right:10px; "><input type="button" value="Discard &amp; return to list of nominees" onclick="self.location='<?php echo APPURL; ?>'"/></td>
 		</tr>
 	</table>
 	<input type="hidden" name="MM_insert" value="form1" />

@@ -98,14 +98,14 @@ start();
 	</div>
 	<p align="center">
 		<?php if ($row_nominees['nominator'] == USERNAME || SUPER) { ?>
-		<input type="button" value="Edit nominee details" onclick="self.location='/colloq/edit/<?php echo $_REQUEST['id']; ?>'"/>
+		<input type="button" value="Edit nominee details" onclick="self.location='<?php echo APPURL; ?>edit/<?php echo $_REQUEST['id']; ?>'"/>
 		<?php }
 	else { ?>
 		<span class="hideoniphone">Only the user who nominated <i><?php echo $real_firstname ?></i> can edit these details.</span>
 		<?php } ?>
 	</p>
 	<p align="center">
-	<td><input type="button" name="goback" id="goback" value="Return to list of nominees" onclick="self.location='/colloq/'"/></td>
+	<td><input type="button" name="goback" id="goback" value="Return to list of nominees" onclick="self.location='<?php echo APPURL; ?>'"/></td>
 	</p>
 	<h2> Comments on <i><?php echo $real_firstname ?></i>: </h2>
 	<table align="center" cellspacing="20">
@@ -130,8 +130,8 @@ start();
 			<td><div align="center" id="buttontable">
 					<table>
 						<tr>
-							<td><input type="button" value="Add comment" onclick="self.location='/colloq/comment/<?php echo $row_nominees['id'] ?>'" /></td>
-							<td><input type="button" name="goback" id="goback" value="Return to list of nominees..." onclick="self.location='/colloq/'"/></td>
+							<td><input type="button" value="Add comment" onclick="self.location='<?php echo APPURL; ?>comment/<?php echo $row_nominees['id'] ?>'" /></td>
+							<td><input type="button" name="goback" id="goback" value="Return to list of nominees..." onclick="self.location='<?php echo APPURL; ?>'"/></td>
 						</tr>
 					</table>
 				</div></td>
@@ -141,7 +141,7 @@ start();
 <?php if (!$all_subscribed): ?>
 	<h2> Comment notification: </h2>
   <div align="center" id="buttontable">
-    <form action="/colloq/subscribe/<?php echo $row_nominees['id'] ?>" method="post">
+    <form action="<?php echo APPURL; ?>subscribe/<?php echo $row_nominees['id'] ?>" method="post">
     <p><input type="checkbox" name="subscribed" id="subscribed" <?php if ($subscribed) echo 'checked="checked"' ?>></input> <label for="subscribed">Subscribe to comments</label></p>
     <p><small>When "subscribe to comments" is on, you will receive an email whenever someone other than you(rself) leaves a comment for <?php echo $row_nominees['firstname'].' '.$row_nominees['lastname'];?>.</small></p>
     <p><input type="submit" value="Update"/></p>

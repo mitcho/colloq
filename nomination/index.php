@@ -32,9 +32,9 @@ start();
 		<br />
 			<ul>
 		<?php } // Show if recordset empty?>
-				<li>click <a href="/colloq/recent/" target="_self">here to see list of people who have been invited in the past four years</a> (and are therefore ineligible for nomination)</li>
+				<li>click <a href="<?php echo APPURL; ?>recent/" target="_self">here to see list of people who have been invited in the past four years</a> (and are therefore ineligible for nomination)</li>
 			</ul></p>
-		<p class="showoniphone"><a href="/colloq/recent/" target="_self">recent speakers list</a></p>
+		<p class="showoniphone"><a href="<?php echo APPURL; ?>recent/" target="_self">recent speakers list</a></p>
 		<?php if ($totalRows_nominees > 0) { // Show if recordset not empty ?>
 			<div id="datatable" align="center">
 			<table class="sortable">
@@ -55,7 +55,7 @@ start();
 				<tbody>
 					<?php do { ?>
 						<tr>
-							<td class='lastname'><a href="/colloq/view/<?php echo $row_nominees['id'] ?>" target="_self"> <?php echo $row_nominees['lastname'] ?></a> </td>
+							<td class='lastname'><a href="<?php echo APPURL; ?>view/<?php echo $row_nominees['id'] ?>" target="_self"> <?php echo $row_nominees['lastname'] ?></a> </td>
 							<td><?php echo $row_nominees['firstname'] ?> </td>
 							<td class="affiliation"><?php echo $row_nominees['affiliation'] ?> </td>
 							<td style="text-align:center;"><?php if (trim($row_nominees['website']) != "") {
@@ -89,7 +89,7 @@ start();
 								<?php } ?>
 							</td>
 							<td class="subfield" align="center"><?php 
-echo "<b class=\"sanishtext\"><a href=\"/colloq/view/{$row_nominees['id']}\" target=\"_self\" ".($row_nominees['subscribed']?" title='Subcribed to comments.'":'')."> ".$row_nominees['commentsno'].($row_nominees['subscribed'] && !$subscribed?" &#x2714;":'')."</a></b>";
+echo "<b class=\"sanishtext\"><a href=\"" . APPURL . "view/{$row_nominees['id']}\" target=\"_self\" ".($row_nominees['subscribed']?" title='Subcribed to comments.'":'')."> ".$row_nominees['commentsno'].($row_nominees['subscribed'] && !$subscribed?" &#x2714;":'')."</a></b>";
 							?>
 							</td>
 							<td class="subfield commented" align="left" sortable_customkey="<?php echo $row_nominees['lastcomment_sort'];?>"><?php 
@@ -107,13 +107,13 @@ if ($row_nominees['commentsno'] > 0) {
 		<?php } // Show if recordset not empty?>
 		<p>
 		<a name="add_nominee_button" id="add_nominee_button"></a>
-		<input type="submit" name="add_nominee" id="add_nominee" value="Add Nominee" onclick="self.location='/colloq/add/'" class="medbutton" />
+		<input type="submit" name="add_nominee" id="add_nominee" value="Add Nominee" onclick="self.location='<?php echo APPURL; ?>add/'" class="medbutton" />
 		</p>
 		<br/>
 <?php //if (SUPER): ?>
 	<h2> Notifications </h2>
   <div>
-    <form action="/colloq/subscribe/0" method="post">
+    <form action="<?php echo APPURL; ?>subscribe/0" method="post">
     <p><input style="vertical-align:middle" type="checkbox" name="subscribed" id="subscribed" <?php if ($subscribed) echo 'checked="checked"' ?>></input> <label for="subscribed">Subscribe to all activity</label></p>
     <p class="hideoniphone"><small>When this option is on, you will receive an email whenever someone other than you(rself) leaves a comment for any nominee or when a new nominee is added. If this is off, you can still subscribe to comments for individual nominees.</small></p>
     <p><input type="submit" value="Update"/></p>

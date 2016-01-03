@@ -8,7 +8,7 @@ if (isset($_POST['subscribed'])) {
 }
 
 if ($recordID == 0)
-	$insertGoTo = "/colloq/";
+	$insertGoTo = APPURL;
 else
-	$insertGoTo = "/colloq/view/{$recordID}";
+	$insertGoTo = APPURL . "view/{$recordID}";
 header(sprintf("Location: %s", $insertGoTo));

@@ -34,22 +34,20 @@ function start() {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title><?php echo $title; ?> | MIT Linguistics Colloquium <?php echo $years; ?></title>
+	<title><?php echo $title; ?> | Linguistics Colloquium <?php echo $years; ?></title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
 	<meta name="viewport" content="width=device-width; initial-scale=1;">
 	
-	<link rel="shortcut icon" href="/favicon.ico">
-	<link rel="apple-touch-icon" href="/colloq/apple-touch-icon.png">
-	<link rel="stylesheet" href="/colloq/css/style.css?v=2">
-	<link rel="stylesheet" media="handheld" href="/colloq/css/handheld.css?v=2">
+	<link rel="stylesheet" href="<?php echo APPURL; ?>css/style.css?v=2">
+	<link rel="stylesheet" media="handheld" href="<?php echo APPURL; ?>css/handheld.css?v=2">
 	
-	<script type='text/javascript' src='/colloq/sortable/sortable.js'></script>
+	<script type='text/javascript' src='<?php echo APPURL; ?>sortable/sortable.js'></script>
 	<script type='text/javascript' src='//code.jquery.com/jquery-1.11.3.min.js'></script>
 	<script type='text/javascript'>
 	jQuery(document).ready(function(){
-		$('header').click(function() {window.location='/colloq/';}).css({cursor: 'pointer'});
+		$('header').click(function() {window.location='<?php echo APPURL; ?>';}).css({cursor: 'pointer'});
 		$('.nomination #datatable tbody tr').each(function() {
 			var row = $(this);
 			row.click(function(e) {
@@ -65,7 +63,7 @@ function start() {
 <body class="<?php echo $phase; ?>">
 	<div id="container">
 		<header>
-	<h1>MIT Ling<span class="hideoniphone">uistics</span> Colloq<span class="hideoniphone">uium <?php echo $years; ?></span>: <?php echo $header; ?></h1>
+	<h1>Ling<span class="hideoniphone">uistics</span> Colloq<span class="hideoniphone">uium <?php echo $years; ?></span>: <?php echo $header; ?></h1>
 	<?php if (USERNAME): ?>
 	<p class="hideoniphone">You have been identified as: <span class="lookedup"><?php echo USERDISPLAYNAME; ?></span></p>
 	<?php endif; ?>

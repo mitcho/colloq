@@ -66,7 +66,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
     mail($mailTo, $subject, $message, $headers);
   }
 
-	$insertGoTo = "/colloq/view/$recordID";
+	$insertGoTo = APPURL . "view/$recordID";
 	header(sprintf("Location: %s", $insertGoTo));
 }
 
@@ -107,7 +107,7 @@ comments</span>?</th>
 			<td colspan="2"><table width="100%">
 					<tr>
 						<td align="center"><input type="submit" value="Add comment" /></td>
-						<td align="center"><input type="button" value="Discard" onclick="self.location='/colloq/view/<?php echo $_GET['recordID'] ?>'"/></td>
+						<td align="center"><input type="button" value="Discard" onclick="self.location='<?php echo APPURL; ?>view/<?php echo $_GET['recordID'] ?>'"/></td>
 					</tr>
 				</table></td>
 		</tr>

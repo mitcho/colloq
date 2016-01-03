@@ -19,7 +19,6 @@ switch ($phase) {
 		break;
 	case 'voting':
 		$access = $voting_list;
-		// $access = array_merge($access, moira('ling-cnvs-fac'));
 		$title = 'Voting';
 		$header = 'Voting';
 		break;
@@ -36,7 +35,6 @@ if (empty($access)) {
 	exit;
 }
 
-$colname_activity = "-1";
 if (USERNAME) {
 	if ( !in_array(strtolower(str_replace('@mit.edu', '', USERNAME)), $access) ) {
 		start();
@@ -45,8 +43,8 @@ if (USERNAME) {
 		exit;
 	}
 } else {
-	$title = "Certificate required";
-	$header = "Certificate required";
+	$title = "Authentication required";
+	$header = "Authentication required";
 	start();
 	nologin();
 	stop();

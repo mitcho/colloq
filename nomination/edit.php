@@ -12,7 +12,7 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
 	mysql_select_db($database_cnvs, $cnvs);
 	$Result1 = mysql_query($updateSQL, $cnvs) or die(mysql_error());
 
-	$updateGoTo = "/colloq/view/{$_POST['recordID']}";
+	$updateGoTo = APPURL . "view/{$_POST['recordID']}";
 	if (isset($_SERVER['QUERY_STRING'])) {
 		$updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
 		$updateGoTo .= $_SERVER['QUERY_STRING'];
@@ -70,7 +70,7 @@ start();
 	<table align="center" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td align="left" style="padding-left:10px; padding-right:10px; "><input type="submit" value="Submit changes" /></td>
-			<td align="right" style="padding-left:10px; padding-right:10px; "><input type="button" value="Discard &amp; return to nominee details" onclick="self.location='/colloq/view/<?php echo $row_nominees['id'];?>'"/></td>
+			<td align="right" style="padding-left:10px; padding-right:10px; "><input type="button" value="Discard &amp; return to nominee details" onclick="self.location='<?php echo APPURL; ?>view/<?php echo $row_nominees['id'];?>'"/></td>
 		</tr>
 	</table>
 	<input type="hidden" name="MM_update" value="form1" />
