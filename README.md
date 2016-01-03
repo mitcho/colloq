@@ -1,12 +1,20 @@
 # Colloquium nomination and voting system
 
-Copyright Omer Preminger and contributors
+**Current maintainer:** Michael Yoshitaka Erlewine <mitcho@mitcho.com>
 
-Current maintainer: Michael Yoshitaka Erlewine <mitcho@mitcho.com>
+## The MIT License (MIT)
 
-This software is provided AS IS. There is no active support or guarantee of future maintenance.
+Copyright (c) Omer Preminger and contributors
 
-# Installation
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+**Code contributors:** Michael Yoshitaka Erlewine
+
+## Installation
 
 **Prerequisites:** a LAMP (Linux Apache MySQL PHP) server environment is expected. The current release has been tested on Apache 2.2, PHP 5.6, MySQL 5.0.11. (Python is also currently required for vote tabulation.)
 
