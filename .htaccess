@@ -1,19 +1,24 @@
+# Basic htaccess config file
+
 Options -Indexes
 
-AuthType SSLCert
+# Use Apache basic auth
+# More info: https://httpd.apache.org/docs/2.2/howto/auth.html#gettingitworking
+AuthType Basic
+AuthName "Restricted"
+AuthUserFile /usr/local/apache/passwd/passwords
 Require valid-user
-# or alternatively: https://scripts.mit.edu/news/79/new-features-on-scriptsmitedu
-# AuthSSLCertAuthoritative off
-# AuthOptional on
-
-ErrorDocument 401 /__scripts/needcerts
+# These Auth* declarations will not be processed unless the relevant Directory or 
+# VirtualHost is given AllowOverride AuthConfig in the httpd conf
 
 <Files "script*">
-	Require user mitcho
+	Require user admin
 </Files>
 
 RewriteEngine on
-RewriteBase /colloq/
+# If installed in a subdirectory, set RewriteBase to be the URL path prefix with a
+# trailing slash, like /colloq/
+RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^/]*?)/(\d+)/?$ index.php?action=$1&id=$2 [QSA]

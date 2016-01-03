@@ -1,0 +1,25 @@
+# htaccess file for MIT scripts installation (scripts.mit.edu)
+# requires MIT certificate
+
+Options -Indexes
+
+AuthType SSLCert
+Require valid-user
+# or alternatively: https://scripts.mit.edu/news/79/new-features-on-scriptsmitedu
+# AuthSSLCertAuthoritative off
+# AuthOptional on
+
+ErrorDocument 401 /__scripts/needcerts
+
+<Files "script*">
+	Require user mitcho
+</Files>
+
+RewriteEngine on
+RewriteBase /colloq/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]*?)/(\d+)/?$ index.php?action=$1&id=$2 [QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]*?)/?$ index.php?action=$1 [QSA]

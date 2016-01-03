@@ -5,7 +5,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 											 GetSQLValueString($_POST['firstname'], "text"),
 											 GetSQLValueString($_POST['affiliation'], "text"),
 											 GetSQLValueString($_POST['website'], "text"),
-						 					 strtolower(trim($_SERVER['SSL_CLIENT_S_DN_Email'])),
+						 					 USERNAME,
 											 GetSQLValueString(isset($_POST['syntax']) ? "true" : "", "defined","1","0"),
 											 GetSQLValueString(isset($_POST['semantics']) ? "true" : "", "defined","1","0"),
 											 GetSQLValueString(isset($_POST['phonology']) ? "true" : "", "defined","1","0"));

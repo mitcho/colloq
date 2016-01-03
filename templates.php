@@ -67,7 +67,7 @@ function start() {
 		<header>
 	<h1>MIT Ling<span class="hideoniphone">uistics</span> Colloq<span class="hideoniphone">uium <?php echo $years; ?></span>: <?php echo $header; ?></h1>
 	<?php if (USERNAME): ?>
-	<p class="hideoniphone">You have been identified as: <span class="lookedup"><?php echo $_SERVER['SSL_CLIENT_S_DN_CN'] ?> (<?php echo USERNAME;?>)</span></p>
+	<p class="hideoniphone">You have been identified as: <span class="lookedup"><?php echo USERDISPLAYNAME; ?></span></p>
 	<?php endif; ?>
 		</header>
 
