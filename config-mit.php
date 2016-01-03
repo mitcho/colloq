@@ -6,8 +6,6 @@
 // phase values are: nomination | nomination_over | voting | voting_over
 $phase = 'voting_over';
 $years = '2015-2016';
-$maintainer = 'rasin@mit.edu';
-$maintainername = 'ezer';
 define("NOTIFICATION_FROM", "Linguistics Colloquium <admin@colloq.com>");
 define("NOTIFICATION_TO", "noreply@colloq.com");
 
@@ -74,6 +72,7 @@ function moira($list) {
 // messages
 global $messages;
 $messages = array(
+	'footer' => '<p>Colloq is currently maintained by <a href="mailto:rasin@mit.edu"><em>Ezer</em></a>.</p>',
 	'nologin' => '<p>You must have an <a href="http://web.mit.edu/ist/topics/certificates/" target="_blank">MIT certificate</a> installed in your browser and reaccess <a href="' . APPURL .'">' . APPURL . '</a></p>',
 	'wronggroup' => '<p>You do not have the proper credentials to participate in this round.</p>',
 	'nothingtoseehere' => '<h2>Nothing to see here.</h2><p>Please check back later!</p>',

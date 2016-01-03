@@ -73,13 +73,13 @@ function start() {
 }
 
 function stop() {
-	global $starttime, $maintainer, $maintainername;
+	global $starttime, $messages;
 	$stoptime = microtime(true);
 ?>
 </div><!--main-->
 
 		<footer class="hideoniphone">
-		<p>CNVS is currently maintained by <a href="mailto:<?php echo $maintainer; ?>"><em><?php echo $maintainername; ?></em></a></p>
+		<?php $messages['footer']; ?>
 		<p><?php echo number_format($stoptime - $starttime,3);?>s</p>
 		</footer>
 	</div>

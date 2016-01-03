@@ -6,8 +6,6 @@
 // phase values are: nomination | nomination_over | voting | voting_over
 $phase = 'nomination';
 $years = '2015-2016';
-$maintainer = 'admin@colloq.com';
-$maintainername = 'admin';
 define("NOTIFICATION_FROM", "Linguistics Colloquium <admin@colloq.com>");
 define("NOTIFICATION_TO", "noreply@colloq.com");
 
@@ -61,6 +59,7 @@ else
 // messages
 global $messages;
 $messages = array(
+	'footer' => '<!--<p>Contact <a href="mailto:admin@colloq.com">admin</a> for support.</p>-->',
 	'nologin' => '<p>Your username could not be retrieved. You must log in to use the application.</p>',
 	'wronggroup' => '<p>You do not have the proper credentials to participate in this round.</p>',
 	'nothingtoseehere' => '<h2>Nothing to see here.</h2><p>Please check back later!</p>',
