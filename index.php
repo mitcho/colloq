@@ -36,7 +36,7 @@ if (empty($access)) {
 }
 
 if (USERNAME) {
-	if ( !in_array(strtolower(str_replace('@mit.edu', '', USERNAME)), $access) ) {
+	if ( !in_array(USERNAME, $access) ) {
 		start();
 		wronggroup();
 		stop();

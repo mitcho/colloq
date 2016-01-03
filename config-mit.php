@@ -66,7 +66,7 @@ else
 function moira($list) {
 	$members = "";
 	exec("blanche -r -noauth $list", $members);
-	return array_map('strtolower',array_map('trim', $members));
+	return array_map(function($x) { return strtolower(trim($x . '@mit.edu')); }, $members);
 }
 
 // messages

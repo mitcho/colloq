@@ -11,8 +11,8 @@ define("NOTIFICATION_TO", "noreply@colloq.com");
 
 // control access here:
 // This makes reference to usernames which come from the Apache basic auth username
-$voting_list = array('admin','testuser','testvoter');
-$nomination_list = array('admin','testuser','testnominator');
+$voting_list = array('admin@colloq.com','testuser@colloq.com','testvoter@colloq.com');
+$nomination_list = array('admin@colloq.com','testuser@colloq.com','testnominator@colloq.com');
 
 // database connection settings:
 $db_settings = array(
@@ -51,7 +51,7 @@ if ( isset($_SERVER['REMOTE_USER']) ) {
 define('USERDISPLAYNAME', USERNAME);
 
 // define SUPER for superuser priviledges
-if (USERNAME === 'admin')
+if (USERNAME === 'admin@colloq.com')
 	define('SUPER',true);
 else
 	define('SUPER',false);
