@@ -110,7 +110,7 @@ if ($row_nominees['commentsno'] > 0) {
 		<input type="submit" name="add_nominee" id="add_nominee" value="Add Nominee" onclick="self.location='<?php echo APPURL; ?>add/'" class="medbutton" />
 		</p>
 		<br/>
-<?php //if (SUPER): ?>
+
 	<h2> Notifications </h2>
   <div>
     <form action="<?php echo APPURL; ?>subscribe/0" method="post">
@@ -120,7 +120,6 @@ if ($row_nominees['commentsno'] > 0) {
     </form>
     <br/>
   </div>
-<?php //endif; ?>
 
 		<h2>Stats</h2>
 		<p>For reference: <?php echo $syn;?> syntacticians, <?php echo $sem;?> semanticists, and <?php echo $phon;?> phonologists have been nominated thus far. (Yes, I'm double-counting).</p>
