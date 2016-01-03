@@ -13,6 +13,8 @@ define("NOTIFICATION_TO", "noreply@colloq.com");
 // This makes reference to usernames which come from the Apache basic auth username
 $voting_list = array('admin@colloq.com','testuser@colloq.com','testvoter@colloq.com');
 $nomination_list = array('admin@colloq.com','testuser@colloq.com','testnominator@colloq.com');
+// superusers can edit information on any nominee:
+$superusers = array('admin@colloq.com');
 
 // database connection settings:
 $db_settings = array(
@@ -33,7 +35,8 @@ if (isset($_GET['test'])) {
 ini_set('error_reporting', E_ALL & ~E_DEPRECATED);
 ini_set('display_errors','On');
 
-define('APPPATH', dirname($_SERVER["SCRIPT_FILENAME"]));
+// define('APPPATH', dirname($_SERVER["SCRIPT_FILENAME"]));
+// APPURL is the base URL of the application, with a final trailing slash:
 define('APPURL', 'http://' . $_SERVER["HTTP_HOST"] . dirname($_SERVER["SCRIPT_NAME"]));
 
 // connect to database
@@ -45,15 +48,15 @@ mysql_query('set names ' . $db_settings['charset']);
 // get username
 if ( isset($_SERVER['REMOTE_USER']) ) {
 	define('USERNAME',strtolower(trim($_SERVER['REMOTE_USER'])));
+	if ( in_array(USERNAME, $superusers) ) {
+		define('SUPER',true);
+	}
 } else {
 	define('USERNAME',false);
 }
 define('USERDISPLAYNAME', USERNAME);
 
-// define SUPER for superuser priviledges
-if (USERNAME === 'admin@colloq.com')
-	define('SUPER',true);
-else
+if ( !defined('SUPER') )
 	define('SUPER',false);
 
 // messages
