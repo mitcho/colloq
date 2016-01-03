@@ -6,8 +6,10 @@
 // phase values are: nomination | nomination_over | voting | voting_over
 $phase = 'nomination';
 $years = '2015-2016';
-$maintainer = 'admin@admin.com';
+$maintainer = 'admin@colloq.com';
 $maintainername = 'admin';
+define("NOTIFICATION_FROM", "Linguistics Colloquium <admin@colloq.com>");
+define("NOTIFICATION_TO", "noreply@colloq.com");
 
 // control access here:
 // This makes reference to usernames which come from the Apache basic auth username
@@ -24,7 +26,7 @@ $db_settings = array(
 	'charset' => 'utf8'
 );
 
-// END CONFIGURATIONS
+// END BASIC CONFIGURATIONS
 
 if (isset($_GET['test'])) {
 	ini_set('display_errors','On');
@@ -34,7 +36,7 @@ ini_set('error_reporting', E_ALL & ~E_DEPRECATED);
 ini_set('display_errors','On');
 
 define('APPPATH', dirname($_SERVER["SCRIPT_FILENAME"]));
-define('APPURL', dirname($_SERVER["SCRIPT_NAME"]));
+define('APPURL', 'http://' . $_SERVER["HTTP_HOST"] . dirname($_SERVER["SCRIPT_NAME"]));
 
 // connect to database
 global $cnvs;

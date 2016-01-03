@@ -51,7 +51,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
     $mime_boundary = "----.fay----".$rand;
     $headers .= "Content-Type: multipart/alternative; boundary=\"$mime_boundary\"\n";
   
-    $message .= "--$mime_boundary\n";
+    $message = "--$mime_boundary\n";
 //    $message .= "Content-Type: text/html; charset=UTF-8\n";
     $message .= "Content-Transfer-Encoding: 8bit\n\n";
 //    $message .= "<html>\n";
@@ -61,9 +61,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 //    $message .= "</body>\n";
 //    $message .= "</html>\n";
     $message .= "--$mime_boundary--\n\n";
-//    var_dump(array($mailTo, $postnotifier_subject, $message, $headers));
-//    exit;
-    mail($mailTo, $subject, $message, $headers);
+    mail(NOTIFICATION_TO, $subject, $message, $headers);
   }
 
 	$insertGoTo = APPURL . "view/$recordID";

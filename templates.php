@@ -1,6 +1,5 @@
 <?php
 
-define("NOTIFICATION_FROM","Linguistics Colloquium <mitcho+cnvs@mit.edu>");
 define("COMMENT_NOTIFICATION_SUBJECT","[Colloq] New comment for [NAME]");
 define("COMMENT_NOTIFICATION_BODY",<<<BODY
 A new comment was added to [NAME]:

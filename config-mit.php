@@ -8,6 +8,8 @@ $phase = 'voting_over';
 $years = '2015-2016';
 $maintainer = 'rasin@mit.edu';
 $maintainername = 'ezer';
+define("NOTIFICATION_FROM", "Linguistics Colloquium <admin@colloq.com>");
+define("NOTIFICATION_TO", "noreply@colloq.com");
 
 // control access here:
 // this has to be changed every year
