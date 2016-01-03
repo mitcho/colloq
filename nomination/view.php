@@ -151,5 +151,5 @@ start();
 	<p>You have subscribed to all activity, so you will be emailed whenever someone other than you(rself) leaves a comment for <?php echo $row_nominees['firstname'].' '.$row_nominees['lastname'];?>.</p>
 <?php endif;
 
-mysql_free_result($nominees);
-mysql_free_result($comments);
+@mysql_free_result($nominees);
+@mysql_free_result($comments);

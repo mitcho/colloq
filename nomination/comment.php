@@ -116,4 +116,4 @@ comments</span>?</th>
 	<input type="hidden" name="recordID" value="<?php echo $_GET['recordID'] ?>" />
 </form>
 <?php
-mysql_free_result($nominees);
+@mysql_free_result($nominees);

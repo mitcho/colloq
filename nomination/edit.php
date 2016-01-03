@@ -77,4 +77,4 @@ start();
 	<input type="hidden" name="recordID" value="<?php echo $row_nominees['id'] ?>" />
 </form>
 <?php
-mysql_free_result($nominees);
+@mysql_free_result($nominees);

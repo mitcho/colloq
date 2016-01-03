@@ -126,4 +126,4 @@ if ($row_nominees['commentsno'] > 0) {
 		<p>For reference: <?php echo $syn;?> syntacticians, <?php echo $sem;?> semanticists, and <?php echo $phon;?> phonologists have been nominated thus far. (Yes, I'm double-counting).</p>
 	</div>
 <?php
-mysql_free_result($nominees);
+@mysql_free_result($nominees);

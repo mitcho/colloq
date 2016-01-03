@@ -231,5 +231,5 @@ jQuery(document).ready(function($){
 		<br />
 	</div>
 <?php
-mysql_free_result($nominees);
-mysql_free_result($ballot);
+@mysql_free_result($nominees);
+@mysql_free_result($ballot);

@@ -11,7 +11,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 											 GetSQLValueString(isset($_POST['phonology']) ? "true" : "", "defined","1","0"));
 
 	$Result1 = mysql_query($insertSQL, $cnvs) or die(mysql_error());
-	mysql_free_result($Result1);
+	@mysql_free_result($Result1);
 
   $new_recordID = mysql_insert_id($cnvs);
 

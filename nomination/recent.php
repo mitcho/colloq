@@ -37,4 +37,4 @@ start();
 		</div>
 	</div>
 <?php
-mysql_free_result($recent);
+@mysql_free_result($recent);
