@@ -9,7 +9,6 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
 											 GetSQLValueString(isset($_POST['phonology']) ? "true" : "", "defined","1","0"),
 											 GetSQLValueString($_POST['recordID'], "int"));
 
-	mysql_select_db($database_cnvs, $db);
 	$Result1 = mysql_query($updateSQL, $db) or die(mysql_error());
 
 	$updateGoTo = APPURL . "view/{$_POST['recordID']}";

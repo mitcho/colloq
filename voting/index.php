@@ -3,13 +3,12 @@
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "voteform")) {
 	$insertSQL = sprintf("INSERT INTO ballots (voter, created, nom1, nom2, nom3, nom4, nom5) VALUES ('%s', Now(), %s, %s, %s, %s, %s)",
                        USERNAME,
-											 str_replace("NULL","-1",GetSQLValueString($_POST['vote1'], "int")),
-											 str_replace("NULL","-1",GetSQLValueString($_POST['vote2'], "int")),
-											 str_replace("NULL","-1",GetSQLValueString($_POST['vote3'], "int")),
-											 str_replace("NULL","-1",GetSQLValueString($_POST['vote4'], "int")),
-											 str_replace("NULL","-1",GetSQLValueString($_POST['vote5'], "int")));
+											 str_replace("NULL","-1",GetSQLValueString(@$_POST['vote1'], "int")),
+											 str_replace("NULL","-1",GetSQLValueString(@$_POST['vote2'], "int")),
+											 str_replace("NULL","-1",GetSQLValueString(@$_POST['vote3'], "int")),
+											 str_replace("NULL","-1",GetSQLValueString(@$_POST['vote4'], "int")),
+											 str_replace("NULL","-1",GetSQLValueString(@$_POST['vote5'], "int")));
 
-	mysql_select_db($database_cnvs, $db);
 	$Result1 = mysql_query($insertSQL, $db) or die(mysql_error());
 
 	header(sprintf("Location: %s", '/colloq/'));
@@ -17,16 +16,15 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "voteform")) {
 
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "voteform")) {
 	$insertSQL = sprintf("UPDATE ballots SET nom1=%s, nom2=%s, nom3=%s, nom4=%s, nom5=%s WHERE voter='%s'",
-											 str_replace("NULL","-1",GetSQLValueString($_POST['vote1'], "int")),
-											 str_replace("NULL","-1",GetSQLValueString($_POST['vote2'], "int")),
-											 str_replace("NULL","-1",GetSQLValueString($_POST['vote3'], "int")),
-											 str_replace("NULL","-1",GetSQLValueString($_POST['vote4'], "int")),
-											 str_replace("NULL","-1",GetSQLValueString($_POST['vote5'], "int")),											 USERNAME);
+											 str_replace("NULL","-1",GetSQLValueString(@$_POST['vote1'], "int")),
+											 str_replace("NULL","-1",GetSQLValueString(@$_POST['vote2'], "int")),
+											 str_replace("NULL","-1",GetSQLValueString(@$_POST['vote3'], "int")),
+											 str_replace("NULL","-1",GetSQLValueString(@$_POST['vote4'], "int")),
+											 str_replace("NULL","-1",GetSQLValueString(@$_POST['vote5'], "int")),											 USERNAME);
 
-	mysql_select_db($database_cnvs, $db);
 	$Result1 = mysql_query($insertSQL, $db) or die(mysql_error());
 
-	header(sprintf("Location: %s", '/colloq/'));
+	header(sprintf("Location: %s", APPURL));
 }
 
 $query_nominees = "SELECT id, lastname, firstname, affiliation, website, syntax, semantics, phonology, count(comments.nomid) as comments FROM nominees left join comments on (nominees.id = comments.nomid) group by id ORDER BY lastname ASC";
