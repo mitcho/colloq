@@ -1,12 +1,9 @@
 <?php
 session_start();
 
-if (isset($_GET['test'])) {
-	ini_set('display_errors','On');
-	error_reporting(E_ALL);
-}
-
 require_once('config.php');
+require_once('functions.php');
+log_access_activity();
 require_once('templates.php');
 
 $access = array();
