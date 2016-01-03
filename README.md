@@ -12,7 +12,9 @@ This software is provided AS IS. There is no active support or guarantee of futu
 
 1.	Copy `colloq` into your web directory.
 	Some Apache details in case there is trouble: the relevant directory should be given `AuthOverride All` so that the `htaccess` file will work properly, and `DirectoryIndex` should include `index.php`.
-2.	Set up authentication. Authentication is done via [Apache HTTP basic password authentication](https://wiki.apache.org/httpd/PasswordBasicAuth). Following the instructions there, use the `htpasswd` utility to create a passwords file in a directory which is readable by the server but not by the world. Register all your users and passwords there. *Usernames should be email addresses.*
+2.	Set up authentication.
+	- Authentication is done via [Apache HTTP basic password authentication](https://wiki.apache.org/httpd/PasswordBasicAuth). Following the instructions there, use the `htpasswd` utility to create a passwords file in a directory which is readable by the server but not by the world. Register all your users and passwords there. Usernames should be email addresses.
+	- Edit the `.htaccess` file so that the `AuthUserFile` directive points towards your passwords file.
 3.	Create a MySQL database and load the code `SCHEMA.sql` which will set up the requisite tables.
 4.	Edit the `config.php` file. Some highlights:
 	- the variable `$phase` is used to switch between different phases of the nomination and voting process
